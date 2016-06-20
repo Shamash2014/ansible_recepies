@@ -30,6 +30,9 @@
       - postgresql-contrib
       - libpq-dev
       - python-psycopg2
+      - git-core
+      - curl
+      - nginx
 
   - name: Ensure the PostgreSQL service is running
     service: name=postgresql state=started enabled=yes
