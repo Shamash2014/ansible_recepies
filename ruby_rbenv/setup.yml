@@ -47,6 +47,12 @@
       repo: https://github.com/sstephenson/rbenv.git
       dest: ~/.rbenv
 
+  - name: Add bash_profile
+    become_user: '{{ deploy_user }}'
+    command: touch $HOME/.bash_profile
+    args:
+      creates: $HOME/.bash_profile
+
   - name: Add new path to bash_profile $PATH
     become_user: '{{ deploy_user }}'
     lineinfile:
@@ -75,7 +81,7 @@
 
   - name: Installing Ruby
     become_user: '{{ deploy_user }}'
-    shell: 'source $HOME/.profile && rbenv install {{ ruby_v }} -s'
+    shell: 'source $HOME/.bash_profile && rbenv install {{ ruby_v }} -s'
     args:
       executable: /bin/bash
 
