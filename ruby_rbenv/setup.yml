@@ -33,6 +33,7 @@
       - git-core
       - curl
       - nginx
+      - redis-server
 
   - name: Ensure the PostgreSQL service is running
     service: name=postgresql state=started enabled=yes
