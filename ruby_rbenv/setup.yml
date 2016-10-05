@@ -34,6 +34,9 @@
       - curl
       - nginx
       - redis-server
+      - imagemagick
+      - libmagickcore-dev
+      - libmagickwand-dev
 
   - name: Ensure the PostgreSQL service is running
     service: name=postgresql state=started enabled=yes
